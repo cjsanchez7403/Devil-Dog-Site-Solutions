@@ -54,6 +54,38 @@
       background: rgba(255,255,255,0);
     }
     .hotspot:focus-visible { outline: 3px solid var(--gold); background: rgba(183,153,76,.12); }
+    .text-overlay {
+      position: absolute;
+      z-index: 3;
+      display: grid;
+      place-items: center;
+      line-height: 1;
+      pointer-events: none;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: .07em;
+    }
+    .nav-overlay {
+      color: #f8f4e8;
+      background: #06121b;
+      font-size: clamp(8px, 1.1vw, 14px);
+    }
+    .section-label-overlay {
+      color: #8b6f2d;
+      background: #f6f1e5;
+      font-size: clamp(9px, 1.05vw, 14px);
+    }
+    .email-overlay {
+      color: #06121b;
+      background: #dcc57e;
+      border: 1px solid rgba(6,18,27,.4);
+      border-radius: 2px;
+      padding: 5px 8px;
+      font-size: clamp(7px, .82vw, 10px);
+      letter-spacing: .03em;
+      box-shadow: 0 3px 10px rgba(0,0,0,.18);
+    }
     .sr-only {
       position: absolute;
       width: 1px;
@@ -112,32 +144,36 @@
 
     <img class="reference" src="assets/devil-dog-reference-2x.png" width="1882" height="3344" alt="Devil Dog Site Solutions full-page website design" />
 
+    <span class="text-overlay nav-overlay" style="left:50.4%; top:3.0%; width:9.4%; height:2.1%;">Example<br />Results</span>
+    <span class="text-overlay section-label-overlay" style="left:43.4%; top:61.48%; width:13.2%; height:1.0%;">Example Results</span>
+    <span class="text-overlay email-overlay" style="left:52.2%; top:90.75%; width:20.3%; height:1.35%;">Secondary: cjsanchez7403@yahoo.com</span>
+
     <!-- Header links -->
     <a class="hotspot" href="#top" aria-label="Devil Dog Site Solutions home" style="left:3.3%; top:2.2%; width:22%; height:4.0%;"></a>
     <a class="hotspot" href="#services" aria-label="Services" style="left:34.0%; top:3.0%; width:7.2%; height:2.1%;"></a>
     <a class="hotspot" href="#process" aria-label="Process" style="left:42.6%; top:3.0%; width:6.4%; height:2.1%;"></a>
-    <a class="hotspot" href="#recent-work" aria-label="Recent work" style="left:50.4%; top:3.0%; width:9.4%; height:2.1%;"></a>
+    <a class="hotspot" href="#recent-work" aria-label="Example results" style="left:50.4%; top:3.0%; width:9.4%; height:2.1%;"></a>
     <a class="hotspot" href="#service-area" aria-label="Service area" style="left:61.0%; top:3.0%; width:10.4%; height:2.1%;"></a>
     <a class="hotspot" href="#contact" aria-label="Contact" style="left:72.3%; top:3.0%; width:7.3%; height:2.1%;"></a>
-    <a class="hotspot" href="mailto:cjsanchez7403@yahoo.com?subject=Free%20Estimate%20Request%20-%20Devil%20Dog%20Site%20Solutions&body=Hi%20Carlos%2C%0A%0AI'd%20like%20a%20free%20estimate.%0A%0AName%3A%0AAddress%2Ftown%3A%0AService%20needed%3A%0APhotos%20available%3A%0A%0AThank%20you." aria-label="Get a free estimate by email" style="left:80.0%; top:2.65%; width:16.5%; height:2.55%;"></a>
+    <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Text for a free estimate" style="left:80.0%; top:2.65%; width:16.5%; height:2.55%;"></a>
 
     <!-- Hero buttons -->
-    <a class="hotspot" href="mailto:cjsanchez7403@yahoo.com?subject=Free%20Estimate%20Request%20-%20Devil%20Dog%20Site%20Solutions&body=Hi%20Carlos%2C%0A%0AI'd%20like%20a%20free%20estimate.%0A%0AName%3A%0AAddress%2Ftown%3A%0AService%20needed%3A%0APhotos%20available%3A%0A%0AThank%20you." aria-label="Get a free estimate" style="left:4.9%; top:24.6%; width:17.8%; height:2.35%;"></a>
+    <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Text for a free estimate" style="left:4.9%; top:24.6%; width:17.8%; height:2.35%;"></a>
     <a class="hotspot" href="#recent-work" aria-label="View our work" style="left:23.7%; top:24.6%; width:13.7%; height:2.35%;"></a>
 
     <!-- Service cards -->
-    <a class="hotspot" href="mailto:cjsanchez7403@yahoo.com?subject=Construction%20Cleanup%20Estimate" aria-label="Construction cleanup estimate" style="left:3.2%; top:34.0%; width:14.5%; height:10.7%;"></a>
-    <a class="hotspot" href="mailto:cjsanchez7403@yahoo.com?subject=Demolition%20Estimate" aria-label="Demolition estimate" style="left:18.5%; top:34.0%; width:14.0%; height:10.7%;"></a>
-    <a class="hotspot" href="mailto:cjsanchez7403@yahoo.com?subject=Junk%20Removal%20and%20Hauling%20Estimate" aria-label="Junk removal and hauling estimate" style="left:33.4%; top:34.0%; width:14.8%; height:10.7%;"></a>
-    <a class="hotspot" href="mailto:cjsanchez7403@yahoo.com?subject=Power%20Washing%20Estimate" aria-label="Power washing estimate" style="left:49.1%; top:34.0%; width:14.4%; height:10.7%;"></a>
-    <a class="hotspot" href="mailto:cjsanchez7403@yahoo.com?subject=Repairs%20and%20Touch-ups%20Estimate" aria-label="Repairs and touch-ups estimate" style="left:65.0%; top:34.0%; width:14.7%; height:10.7%;"></a>
-    <a class="hotspot" href="mailto:cjsanchez7403@yahoo.com?subject=Final%20Polish%20Estimate" aria-label="Final polish estimate" style="left:80.3%; top:34.0%; width:15.5%; height:10.7%;"></a>
+    <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20for%20construction%20cleanup%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Construction cleanup estimate by text" style="left:3.2%; top:34.0%; width:14.5%; height:10.7%;"></a>
+    <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20for%20demolition%20work%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Demolition estimate by text" style="left:18.5%; top:34.0%; width:14.0%; height:10.7%;"></a>
+    <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20for%20junk%20removal%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Junk removal and hauling estimate by text" style="left:33.4%; top:34.0%; width:14.8%; height:10.7%;"></a>
+    <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20for%20power%20washing%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Power washing estimate by text" style="left:49.1%; top:34.0%; width:14.4%; height:10.7%;"></a>
+    <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20for%20repairs%20or%20touch-ups%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Repairs and touch-ups estimate by text" style="left:65.0%; top:34.0%; width:14.7%; height:10.7%;"></a>
+    <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20for%20final%20polish%20and%20inspection-ready%20work%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Final polish estimate by text" style="left:80.3%; top:34.0%; width:15.5%; height:10.7%;"></a>
 
     <!-- Recent work and CTA -->
     <a class="hotspot" href="#recent-work" aria-label="View more projects" style="left:37.8%; top:77.05%; width:20.6%; height:1.55%;"></a>
     <a class="hotspot" href="tel:+13475450396" aria-label="Call Carlos Sanchez at 347-545-0396" style="left:51.7%; top:87.50%; width:13.0%; height:4.0%;"></a>
     <a class="hotspot" href="tel:+13475012289" aria-label="Call Alexander Medina at 347-501-2289" style="left:65.8%; top:87.50%; width:12.8%; height:4.0%;"></a>
-    <a class="hotspot" href="mailto:cjsanchez7403@yahoo.com?subject=Free%20Estimate%20Request%20-%20Devil%20Dog%20Site%20Solutions" aria-label="Get your free estimate" style="left:52.0%; top:92.35%; width:20.8%; height:1.65%;"></a>
+    <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Text for your free estimate" style="left:52.0%; top:92.35%; width:20.8%; height:1.65%;"></a>
 
     <!-- Footer / social placeholders -->
     <a class="hotspot" href="tel:+13475450396" aria-label="Call Devil Dog Site Solutions" style="left:4.0%; top:94.0%; width:21.5%; height:4.0%;"></a>
@@ -148,7 +184,7 @@
 
   <nav class="mobile-actions" aria-label="Quick actions">
     <a href="tel:+13475450396">Call</a>
-    <a href="mailto:cjsanchez7403@yahoo.com?subject=Free%20Estimate%20Request%20-%20Devil%20Dog%20Site%20Solutions">Estimate</a>
+    <a href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20from%20Devil%20Dog%20Site%20Solutions.">Estimate</a>
     <a href="#services">Services</a>
   </nav>
 </body>
