@@ -54,6 +54,106 @@
       background: rgba(255,255,255,0);
     }
     .hotspot:focus-visible { outline: 3px solid var(--gold); background: rgba(183,153,76,.12); }
+    .estimate-form {
+      width: min(100%, var(--page-w));
+      margin: 0 auto;
+      padding: 24px clamp(16px, 4vw, 42px) 32px;
+      background: #06121b;
+      border-top: 1px solid rgba(183,153,76,.5);
+      color: #f8f4e8;
+      line-height: 1.2;
+    }
+    .estimate-form h2 {
+      margin: 0 0 8px;
+      color: #dcc57e;
+      text-transform: uppercase;
+      font-size: clamp(20px, 3.4vw, 32px);
+      line-height: 1;
+      letter-spacing: .04em;
+    }
+    .estimate-form p {
+      margin: 0 0 18px;
+      color: #e8e1cf;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+    .field.full { grid-column: 1 / -1; }
+    .field label {
+      color: #dcc57e;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      line-height: 1.1;
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid rgba(220,197,126,.45);
+      border-radius: 3px;
+      padding: 11px 12px;
+      color: #fff;
+      background: rgba(3,8,12,.72);
+      font: inherit;
+    }
+    .field textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .form-row button,
+    .form-row a {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border: 1px solid #dcc57e;
+      border-radius: 3px;
+      color: #06121b;
+      background: #dcc57e;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: .05em;
+      cursor: pointer;
+    }
+    .form-row a {
+      color: #f8f4e8;
+      background: transparent;
+    }
+    .form-status {
+      min-height: 21px;
+      margin: 12px 0 0;
+      color: #dcc57e;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+    input:focus,
+    select:focus,
+    textarea:focus,
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
     .text-overlay {
       position: absolute;
       z-index: 3;
@@ -85,6 +185,38 @@
       font-size: clamp(7px, .82vw, 10px);
       letter-spacing: .03em;
       box-shadow: 0 3px 10px rgba(0,0,0,.18);
+    }
+    .headline-overlay {
+      color: #06121b;
+      background: #f6f1e5;
+      font-size: clamp(14px, 2.4vw, 30px);
+      letter-spacing: .025em;
+    }
+    .contact-patch {
+      color: #f8f4e8;
+      background: linear-gradient(90deg, #6f5c30, #8b7137);
+      border-left: 1px solid rgba(255,255,255,.35);
+      border-right: 1px solid rgba(6,18,27,.55);
+      font-size: clamp(8px, 1.25vw, 15px);
+      letter-spacing: .045em;
+      line-height: 1.15;
+      padding: 6px;
+    }
+    .footer-patch {
+      color: #dcc57e;
+      background: #06121b;
+      font-size: clamp(8px, 1.2vw, 13px);
+      letter-spacing: .05em;
+      line-height: 1.2;
+      padding: 6px;
+    }
+    .small-button-overlay {
+      color: #06121b;
+      background: #f6f1e5;
+      border: 1px solid #b7994c;
+      border-radius: 2px;
+      font-size: clamp(7px, 1vw, 13px);
+      letter-spacing: .045em;
     }
     .sr-only {
       position: absolute;
@@ -119,9 +251,26 @@
       background: rgba(183,153,76,.10);
     }
     @media (max-width: 620px) {
-      body { background:#06121b; }
+      body {
+        background:#06121b;
+        padding-bottom: 76px;
+      }
       .site-wrap { box-shadow: none; }
-      .mobile-actions { display: flex; }
+      .mobile-actions {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        display: flex;
+        padding-bottom: calc(12px + env(safe-area-inset-bottom));
+        box-shadow: 0 -10px 26px rgba(0,0,0,.35);
+      }
+      .mobile-actions a { min-height: 50px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .form-row button,
+      .form-row a { flex: 1 1 100%; }
     }
     @media print {
       body { background:white; }
@@ -142,11 +291,18 @@
     <span class="anchor" id="service-area" style="top:83.61%"></span>
     <span class="anchor" id="contact" style="top:88.82%"></span>
 
-    <img class="reference" src="assets/devil-dog-reference-2x.png" width="1882" height="3344" alt="Devil Dog Site Solutions full-page website design" />
+    <picture>
+      <source srcset="assets/devil-dog-reference-2x.webp" type="image/webp" />
+      <img class="reference" src="assets/devil-dog-reference-2x.png" width="1882" height="3344" alt="Devil Dog Site Solutions full-page website design" />
+    </picture>
 
-    <span class="text-overlay nav-overlay" style="left:50.4%; top:3.0%; width:9.4%; height:2.1%;">Example<br />Results</span>
-    <span class="text-overlay section-label-overlay" style="left:43.4%; top:61.48%; width:13.2%; height:1.0%;">Example Results</span>
+    <span class="text-overlay nav-overlay" style="left:50.1%; top:2.74%; width:10.2%; height:2.56%;">Example<br />Results</span>
+    <span class="text-overlay section-label-overlay" style="left:43.0%; top:61.28%; width:14.0%; height:1.1%;">Example Results</span>
+    <span class="text-overlay headline-overlay" style="left:28.0%; top:62.1%; width:44.0%; height:2.25%;">Representative Transformations</span>
+    <span class="text-overlay small-button-overlay" style="left:37.8%; top:77.05%; width:20.6%; height:1.55%;">Text for a Free Estimate</span>
+    <span class="text-overlay contact-patch" style="left:63.7%; top:87.38%; width:15.4%; height:4.25%;">Carlos Sanchez<br />347-545-0396</span>
     <span class="text-overlay email-overlay" style="left:52.2%; top:90.75%; width:20.3%; height:1.35%;">Secondary: cjsanchez7403@yahoo.com</span>
+    <span class="text-overlay footer-patch" style="left:75.0%; top:94.25%; width:21.8%; height:4.0%;">Text Carlos<br />347-545-0396</span>
 
     <!-- Header links -->
     <a class="hotspot" href="#top" aria-label="Devil Dog Site Solutions home" style="left:3.3%; top:2.2%; width:22%; height:4.0%;"></a>
@@ -170,22 +326,98 @@
     <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20for%20final%20polish%20and%20inspection-ready%20work%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Final polish estimate by text" style="left:80.3%; top:34.0%; width:15.5%; height:10.7%;"></a>
 
     <!-- Recent work and CTA -->
-    <a class="hotspot" href="#recent-work" aria-label="View more projects" style="left:37.8%; top:77.05%; width:20.6%; height:1.55%;"></a>
+    <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%20saw%20the%20example%20results%20and%20would%20like%20a%20free%20estimate%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Text for a free estimate after viewing example results" style="left:37.8%; top:77.05%; width:20.6%; height:1.55%;"></a>
     <a class="hotspot" href="tel:+13475450396" aria-label="Call Carlos Sanchez at 347-545-0396" style="left:51.7%; top:87.50%; width:13.0%; height:4.0%;"></a>
-    <a class="hotspot" href="tel:+13475012289" aria-label="Call Alexander Medina at 347-501-2289" style="left:65.8%; top:87.50%; width:12.8%; height:4.0%;"></a>
     <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Text for your free estimate" style="left:52.0%; top:92.35%; width:20.8%; height:1.65%;"></a>
 
     <!-- Footer / social placeholders -->
     <a class="hotspot" href="tel:+13475450396" aria-label="Call Devil Dog Site Solutions" style="left:4.0%; top:94.0%; width:21.5%; height:4.0%;"></a>
-    <a class="hotspot" href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" style="left:76.7%; top:95.4%; width:3.1%; height:2.0%;"></a>
-    <a class="hotspot" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" style="left:81.9%; top:95.4%; width:3.1%; height:2.0%;"></a>
-    <a class="hotspot" href="mailto:cjsanchez7403@yahoo.com" aria-label="Email Devil Dog Site Solutions" style="left:87.0%; top:95.4%; width:3.1%; height:2.0%;"></a>
+    <a class="hotspot" href="mailto:cjsanchez7403@yahoo.com" aria-label="Email Devil Dog Site Solutions" style="left:52.2%; top:90.75%; width:20.3%; height:1.35%;"></a>
   </main>
 
+  <section class="estimate-form" aria-labelledby="estimate-form-title">
+    <h2 id="estimate-form-title">Text Carlos a Short Estimate Request</h2>
+    <p>Texting is fastest. Fill this out and your message app will open with the details ready to send.</p>
+    <form id="estimate-form" novalidate>
+      <div class="form-grid">
+        <div class="field">
+          <label for="first-name">First name</label>
+          <input id="first-name" name="first-name" autocomplete="given-name" required />
+        </div>
+        <div class="field">
+          <label for="phone">Phone number</label>
+          <input id="phone" name="phone" autocomplete="tel" inputmode="tel" required />
+        </div>
+        <div class="field">
+          <label for="town">Town</label>
+          <input id="town" name="town" autocomplete="address-level2" required />
+        </div>
+        <div class="field">
+          <label for="service-needed">Service needed</label>
+          <select id="service-needed" name="service-needed" required>
+            <option value="">Choose a service</option>
+            <option>Construction Cleanup</option>
+            <option>Demolition</option>
+            <option>Junk Removal &amp; Hauling</option>
+            <option>Power Washing</option>
+            <option>Repairs &amp; Touch-Ups</option>
+            <option>Final Polish / Inspection Ready</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="details">Optional details</label>
+          <textarea id="details" name="details" placeholder="Example: I have approximately one truckload."></textarea>
+        </div>
+      </div>
+      <div class="form-row">
+        <button type="submit">Text Carlos</button>
+        <a href="mailto:cjsanchez7403@yahoo.com">Secondary Email</a>
+      </div>
+      <p class="form-status" id="form-status" aria-live="polite"></p>
+    </form>
+  </section>
+
   <nav class="mobile-actions" aria-label="Quick actions">
+    <a href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20from%20Devil%20Dog%20Site%20Solutions.">Text</a>
     <a href="tel:+13475450396">Call</a>
-    <a href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20from%20Devil%20Dog%20Site%20Solutions.">Estimate</a>
-    <a href="#services">Services</a>
+    <a href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20interested%20in%20a%20Devil%20Dog%20Site%20Solutions%20estimate.%20I%27m%20going%20to%20attach%20photos%20of%20the%20job.">Send Photos</a>
   </nav>
+  <script>
+    const carlosNumber = "+13475450396";
+
+    function smsHref(message) {
+      return `sms:${carlosNumber}?&body=${encodeURIComponent(message)}`;
+    }
+
+    document.getElementById("estimate-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const value = (id) => document.getElementById(id).value.trim();
+      const firstName = value("first-name");
+      const phone = value("phone");
+      const town = value("town");
+      const service = value("service-needed");
+      const details = value("details");
+      const status = document.getElementById("form-status");
+
+      if (!firstName || !phone || !town || !service) {
+        status.textContent = "Please fill out first name, phone number, town, and service needed.";
+        event.currentTarget.reportValidity();
+        return;
+      }
+
+      const message = [
+        `Hi Carlos, my name is ${firstName}.`,
+        `I'm located in ${town}.`,
+        `I need help with ${service.toLowerCase()}.`,
+        `My phone number is ${phone}.`,
+        details ? `Additional details: ${details}` : ""
+      ].filter(Boolean).join(" ");
+
+      status.textContent = "Opening your text message to Carlos...";
+      window.location.href = smsHref(message);
+    });
+  </script>
 </body>
 </html>
