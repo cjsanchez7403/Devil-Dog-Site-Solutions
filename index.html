@@ -62,6 +62,7 @@
       border-top: 1px solid rgba(183,153,76,.5);
       color: #f8f4e8;
       line-height: 1.2;
+      scroll-margin-top: 16px;
     }
     .estimate-form h2 {
       margin: 0 0 8px;
@@ -257,7 +258,7 @@
     <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Text for a free estimate" style="left:80.0%; top:2.65%; width:16.5%; height:2.55%;"></a>
 
     <!-- Hero buttons -->
-    <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Text for a free estimate" style="left:4.9%; top:24.6%; width:17.8%; height:2.35%;"></a>
+    <a class="hotspot" href="#estimate-form-section" aria-label="Go to the short estimate form" style="left:4.9%; top:24.6%; width:17.8%; height:2.35%;"></a>
     <a class="hotspot" href="#recent-work" aria-label="View our work" style="left:23.7%; top:24.6%; width:13.7%; height:2.35%;"></a>
 
     <!-- Service cards -->
@@ -270,16 +271,16 @@
 
     <!-- Example results and CTA -->
     <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%20saw%20the%20example%20results%20and%20would%20like%20a%20free%20estimate%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Text for a free estimate after viewing example results" style="left:37.8%; top:77.05%; width:20.6%; height:1.55%;"></a>
-    <a class="hotspot" href="tel:+13475450396" aria-label="Call Carlos Sanchez at 347-545-0396" style="left:53.2%; top:89.3%; width:28.4%; height:1.65%;"></a>
-    <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Text for your free estimate" style="left:52.0%; top:92.35%; width:20.8%; height:1.65%;"></a>
+    <a class="hotspot" href="tel:+13475450396" aria-label="Call Carlos Sanchez at 347-545-0396" style="left:56.0%; top:89.1%; width:15.0%; height:1.7%;"></a>
+    <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Get your free estimate by text" style="left:51.8%; top:92.28%; width:23.9%; height:1.23%;"></a>
 
     <!-- Footer contact action -->
-    <a class="hotspot" href="mailto:cjsanchez7403@yahoo.com" aria-label="Email Devil Dog Site Solutions" style="left:53.6%; top:90.8%; width:27.8%; height:.9%;"></a>
-    <a class="hotspot" href="tel:+13475450396" aria-label="Call Devil Dog Site Solutions" style="left:79.2%; top:94.4%; width:18.1%; height:3.6%;"></a>
+    <a class="hotspot" href="mailto:cjsanchez7403@yahoo.com" aria-label="Email Devil Dog Site Solutions" style="left:51.8%; top:90.94%; width:23.9%; height:.98%;"></a>
+    <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Text Devil Dog Site Solutions for a free estimate" style="left:78.1%; top:94.65%; width:19.7%; height:3.65%;"></a>
   </main>
 
-  <section class="estimate-form" aria-labelledby="estimate-form-title">
-    <h2 id="estimate-form-title">Text Carlos a Short Estimate Request</h2>
+  <section class="estimate-form" id="estimate-form-section" aria-labelledby="estimate-form-title">
+    <h2 id="estimate-form-title">Text for a Free Estimate</h2>
     <p>Texting is fastest. Fill this out and your message app will open with the details ready to send.</p>
     <form id="estimate-form" novalidate>
       <div class="form-grid">
@@ -314,7 +315,7 @@
         </div>
       </div>
       <div class="form-row">
-        <button type="submit">Text Carlos</button>
+        <button type="submit">Text for a Free Estimate</button>
         <a href="mailto:cjsanchez7403@yahoo.com">Secondary Email</a>
       </div>
       <p class="form-status" id="form-status" aria-live="polite"></p>
@@ -358,7 +359,7 @@
         details ? `Additional details: ${details}` : ""
       ].filter(Boolean).join(" ");
 
-      status.textContent = "Opening your text message to Carlos...";
+      status.textContent = "Opening your estimate text...";
       window.location.href = smsHref(message);
     });
   </script>
