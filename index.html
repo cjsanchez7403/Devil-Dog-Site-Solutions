@@ -258,8 +258,8 @@
     <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Text for a free estimate" style="left:80.0%; top:2.65%; width:16.5%; height:2.55%;"></a>
 
     <!-- Hero buttons -->
-    <a class="hotspot" href="#estimate-form-section" aria-label="Go to the short estimate form" style="left:4.9%; top:24.6%; width:17.8%; height:2.35%;"></a>
-    <a class="hotspot" href="#recent-work" aria-label="View our work" style="left:23.7%; top:24.6%; width:13.7%; height:2.35%;"></a>
+    <a class="hotspot" id="hero-estimate-link" href="#estimate-form-section" aria-label="Go to the short estimate form" style="left:4.9%; top:26.5%; width:17.8%; height:2.15%;"></a>
+    <a class="hotspot" id="hero-work-link" href="#recent-work" aria-label="View our work" style="left:23.7%; top:26.5%; width:13.7%; height:2.15%;"></a>
 
     <!-- Service cards -->
     <a class="hotspot" href="sms:+13475450396?&body=Hi%20Carlos%2C%20I%27m%20looking%20for%20a%20free%20estimate%20for%20construction%20cleanup%20from%20Devil%20Dog%20Site%20Solutions." aria-label="Construction cleanup estimate by text" style="left:3.2%; top:34.0%; width:14.5%; height:10.7%;"></a>
@@ -333,6 +333,25 @@
     function smsHref(message) {
       return `sms:${carlosNumber}?&body=${encodeURIComponent(message)}`;
     }
+
+    function bindScrollLink(linkId, targetId, focusId) {
+      const link = document.getElementById(linkId);
+      const target = document.getElementById(targetId);
+
+      if (!link || !target) return;
+
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const focusTarget = focusId ? document.getElementById(focusId) : null;
+
+        focusTarget?.focus({ preventScroll: true });
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.pushState(null, "", `#${targetId}`);
+      });
+    }
+
+    bindScrollLink("hero-estimate-link", "estimate-form-section", "first-name");
+    bindScrollLink("hero-work-link", "recent-work");
 
     document.getElementById("estimate-form").addEventListener("submit", (event) => {
       event.preventDefault();
